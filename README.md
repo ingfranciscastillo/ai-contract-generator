@@ -1,3 +1,7 @@
+![Screenshot de la aplicación](screenshot.png)
+![Screenshot de la aplicación](screenshot2.png)
+![Screenshot de la aplicación](screenshot3.png)
+
 # Contract Generator - Generador de Contratos con IA
 
 Una aplicación web moderna para generar contratos legales automáticamente usando inteligencia artificial (Claude de Anthropic).
