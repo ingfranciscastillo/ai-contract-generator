@@ -2,9 +2,28 @@
 ![Screenshot de la aplicación](screenshot2.png)
 ![Screenshot de la aplicación](screenshot3.png)
 
+![Next.js](https://img.shields.io/badge/Next.js-000?logo=next.js&logoColor=white)
+![TypeScript](https://img.shields.io/badge/TypeScript-3178C6?logo=typescript&logoColor=white)
+![Tailwind CSS](https://img.shields.io/badge/TailwindCSS-06B6D4?logo=tailwind-css&logoColor=white)
+![ShadCN UI](https://img.shields.io/badge/ShadCN_UI-000?logo=tailwind-css&logoColor=white)
+![UploadThing](https://img.shields.io/badge/UploadThing-4F46E5?logo=uploadthing&logoColor=white)
+![react-hook-form](https://img.shields.io/badge/React_Hook_Form-EC5990?logo=react&logoColor=white)
+![Zod](https://img.shields.io/badge/Zod-3E74C1?logo=typescript&logoColor=white)
+![AI SDK](https://img.shields.io/badge/AI_SDK-000?logo=openai&logoColor=white)
+![pdf-lib](https://img.shields.io/badge/pdf--lib-FF6B6B?logo=adobeacrobatreader&logoColor=white)
+
+
 # Contract Generator - Generador de Contratos con IA
 
-Una aplicación web moderna para generar contratos legales automáticamente usando inteligencia artificial (Claude de Anthropic).
+🚀 Generador de Contratos Automáticos con IA
+
+Aplicación web desarrollada con Next.js que permite generar contratos legales personalizados (como arrendamiento, compraventa o NDA) mediante preguntas clave y procesamiento con inteligencia artificial (Claude o GPT-4).
+
+Los usuarios seleccionan el tipo de contrato, completan un formulario dinámico y obtienen el contrato listo para vista previa, descarga en PDF o almacenamiento con UploadThing.
+
+🔧 Tecnologías utilizadas: Next.js, TypeScript, Tailwind CSS, ShadCN, UploadThing, react-hook-form, Zod, AI SDK, pdf-lib.
+
+🛠️ En desarrollo - MVP sin firma electrónica, pero preparado para escalar.
 
 ## 🚀 Características
 
