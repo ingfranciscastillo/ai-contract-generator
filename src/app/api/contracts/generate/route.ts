@@ -1,5 +1,5 @@
 import { NextRequest, NextResponse } from "next/server";
-import { generateContract } from "@/lib/ai/claude";
+import { generateContract } from "@/lib/ai/groq";
 import { getContractSchema } from "@/lib/contracts/schemas";
 import { ContractType } from "@/types/contract";
 
@@ -25,13 +25,13 @@ export async function POST(request: NextRequest) {
         {
           success: false,
           error: "Datos inválidos",
-          details: validationResult.error.errors,
+          details: validationResult.error.message,
         },
         { status: 400 }
       );
     }
 
-    // Generar el contrato usando Claude
+    // Generar el contrato usando Groq (AI SDK)
     const contractText = await generateContract({ type, data });
 
     return NextResponse.json({

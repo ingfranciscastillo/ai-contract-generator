@@ -11,14 +11,18 @@ import {
   Check,
 } from "lucide-react";
 import { useState } from "react";
+import ReactMarkdown from "react-markdown";
+import remarkGfm from "remark-gfm";
 
 interface ContractPreviewProps {
   contractText: string;
   contractType: string;
   onBack: () => void;
   onDownloadPDF: () => void;
+  onDownloadDOCX?: () => void;
   onUpload?: () => void;
   isGeneratingPDF?: boolean;
+  isGeneratingDOCX?: boolean;
   isUploading?: boolean;
 }
 
@@ -27,8 +31,10 @@ export function ContractPreview({
   contractType,
   onBack,
   onDownloadPDF,
+  onDownloadDOCX,
   onUpload,
   isGeneratingPDF = false,
+  isGeneratingDOCX = false,
   isUploading = false,
 }: ContractPreviewProps) {
   const [copied, setCopied] = useState(false);
@@ -41,47 +47,6 @@ export function ContractPreview({
     } catch (err) {
       console.error("Error copying to clipboard:", err);
     }
-  };
-
-  const formatContractText = (text: string) => {
-    return text.split("\n").map((line, index) => {
-      if (line.trim() === "") {
-        return <br key={index} />;
-      }
-
-      // Títulos (líneas que están en mayúsculas o centradas)
-      if (line.trim().toUpperCase() === line.trim() && line.trim().length > 0) {
-        return (
-          <p key={index} className="font-bold text-center text-lg mb-4 mt-6">
-            {line.trim()}
-          </p>
-        );
-      }
-
-      // Cláusulas numeradas
-      if (/^\d+\./.test(line.trim()) || /^[A-Z]+\./.test(line.trim())) {
-        return (
-          <p key={index} className="font-semibold mt-4 mb-2">
-            {line}
-          </p>
-        );
-      }
-
-      // Considerandos
-      if (line.includes("CONSIDERANDO")) {
-        return (
-          <p key={index} className="font-semibold mb-2">
-            {line}
-          </p>
-        );
-      }
-
-      return (
-        <p key={index} className="mb-2 text-justify">
-          {line}
-        </p>
-      );
-    });
   };
 
   return (
@@ -128,6 +93,26 @@ export function ContractPreview({
             )}
           </Button>
 
+          {onDownloadDOCX && (
+            <Button
+              variant="outline"
+              onClick={onDownloadDOCX}
+              disabled={isGeneratingDOCX}
+            >
+              {isGeneratingDOCX ? (
+                <>
+                  <div className="animate-spin rounded-full h-4 w-4 border-b-2 border-current mr-2" />
+                  Generando...
+                </>
+              ) : (
+                <>
+                  <Download className="mr-2 h-4 w-4" />
+                  Descargar DOCX
+                </>
+              )}
+            </Button>
+          )}
+
           {onUpload && (
             <Button onClick={onUpload} disabled={isUploading}>
               {isUploading ? (
@@ -156,9 +141,11 @@ export function ContractPreview({
         </CardHeader>
         <CardContent>
           <div className="bg-white border rounded-lg p-8 min-h-[600px] shadow-inner">
-            <div className="max-w-none prose prose-sm">
-              {formatContractText(contractText)}
-            </div>
+            <article className="max-w-none prose prose-sm">
+              <ReactMarkdown remarkPlugins={[remarkGfm]}>
+                {contractText}
+              </ReactMarkdown>
+            </article>
           </div>
         </CardContent>
       </Card>

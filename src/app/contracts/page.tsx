@@ -19,10 +19,14 @@ export default function ContractsPage() {
   const {
     generateContract,
     downloadContractPDF,
+    downloadContractDOCX,
+    uploadContractFiles,
     isLoading,
     isGeneratingPDF,
+    isGeneratingDOCX,
     error,
     contractText,
+    isUploading,
   } = useContractGeneration();
 
   const handleTypeSelect = (type: ContractType) => {
@@ -56,8 +60,21 @@ export default function ContractsPage() {
   };
 
   const handleUpload = async () => {
-    // TODO: Implementar subida a UploadThing
-    console.log("Upload to UploadThing - TODO");
+    if (!contractText || !selectedType) return;
+
+    const template = getContractTemplate(selectedType);
+    const contractName = template?.name || "Contrato";
+
+    await uploadContractFiles(contractText, contractName);
+  };
+
+  const handleDownloadDOCX = async () => {
+    if (!contractText || !selectedType) return;
+
+    const template = getContractTemplate(selectedType);
+    const contractName = template?.name || "Contrato";
+
+    await downloadContractDOCX(contractText, contractName);
   };
 
   return (
@@ -91,9 +108,11 @@ export default function ContractsPage() {
           contractType={getContractTemplate(selectedType)?.name || "Contrato"}
           onBack={handleBack}
           onDownloadPDF={handleDownloadPDF}
+          onDownloadDOCX={handleDownloadDOCX}
           onUpload={handleUpload}
           isGeneratingPDF={isGeneratingPDF}
-          isUploading={false}
+          isGeneratingDOCX={isGeneratingDOCX}
+          isUploading={isUploading}
         />
       )}
     </div>

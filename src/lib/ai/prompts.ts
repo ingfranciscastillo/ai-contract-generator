@@ -14,6 +14,9 @@ INSTRUCCIONES IMPORTANTES:
 - Estructura el contrato con numeración clara
 - Incluye espacios para firmas al final
 - Asegúrate de que el contrato sea legalmente vinculante
+- Devuelve el contrato en **Markdown** (no uses bloques de código con \`\`\`)
+- Usa títulos con # / ##, listas y numeración cuando aplique
+- No incluyas explicaciones: devuelve únicamente el contrato
 
 FORMATO REQUERIDO:
 - Título del contrato centrado
