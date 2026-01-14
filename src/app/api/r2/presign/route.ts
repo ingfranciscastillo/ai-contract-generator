@@ -26,7 +26,7 @@ export async function POST(req: Request) {
   }
 
   const presigned = await Promise.all(
-    files.map(async (f) => {
+    files.map(async (f: { name?: string; type?: string; size?: number }) => {
       const name = typeof f?.name === "string" ? f.name : "archivo";
       const type = typeof f?.type === "string" ? f.type : "application/octet-stream";
       const size = typeof f?.size === "number" ? f.size : 0;
