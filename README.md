@@ -1,6 +1,4 @@
-![Screenshot de la aplicación](screenshot.png)
-![Screenshot de la aplicación](screenshot2.png)
-![Screenshot de la aplicación](screenshot3.png)
+![Screenshot de la aplicación](cap.png)
 
 ![Next.js](https://img.shields.io/badge/Next.js-000?logo=next.js&logoColor=white)
 ![TypeScript](https://img.shields.io/badge/TypeScript-3178C6?logo=typescript&logoColor=white)
@@ -11,7 +9,6 @@
 ![Zod](https://img.shields.io/badge/Zod-3E74C1?logo=typescript&logoColor=white)
 ![AI SDK](https://img.shields.io/badge/AI_SDK-000?logo=openai&logoColor=white)
 ![pdf-lib](https://img.shields.io/badge/pdf--lib-FF6B6B?logo=adobeacrobatreader&logoColor=white)
-
 
 # Contract Generator - Generador de Contratos con IA
 
