@@ -19,7 +19,7 @@ export async function generateContract({
     const { text } = await generateText({
       model: groq(modelId),
       temperature: 0.3,
-      maxTokens: 4000,
+      maxOutputTokens: 4000,
       prompt,
     });
 
@@ -29,5 +29,3 @@ export async function generateContract({
     throw new Error("No se pudo generar el contrato. Intenta de nuevo.");
   }
 }
-
-

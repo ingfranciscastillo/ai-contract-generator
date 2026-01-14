@@ -98,7 +98,7 @@ El acuerdo debe incluir:
 };
 
 export const generatePrompt = (context: PromptContext): string => {
-  const promptGenerator = contractPrompts[context.type];
+  const promptGenerator = contractPrompts[context.type as keyof typeof contractPrompts];
   if (!promptGenerator) {
     throw new Error(
       `No prompt generator found for contract type: ${context.type}`
